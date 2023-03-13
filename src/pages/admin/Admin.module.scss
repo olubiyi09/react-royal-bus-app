@@ -1,0 +1,16 @@
+.admin {
+  display: flex;
+  padding-top: 80px;
+  height: 100%;
+
+  .navbar {
+    width: 20%;
+    min-height: 80vh;
+    // height: 100%;
+  }
+  .content {
+    width: 80%;
+    padding: 1rem;
+    background-color: #a59d9da1;
+  }
+}

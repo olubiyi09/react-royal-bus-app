@@ -1,0 +1,256 @@
+.hero {
+  padding-top: 10rem;
+  width: 100%;
+}
+
+.pad {
+  margin-top: 2rem;
+}
+
+.hero-options {
+  max-width: 1100px;
+  padding: 0 0 3rem 0;
+  margin: 4.3rem auto 0 auto;
+  border-radius: 15px 15px 0 0;
+  background-color: rgba(216, 215, 215, 0.788);
+}
+
+.hero-h1 {
+  color: rgb(255, 145, 0);
+  font-size: 3.5rem;
+}
+
+.hero-h2 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.visit {
+  color: orangered;
+  font-size: 2.5rem;
+}
+
+.hero-p {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.options-details nav {
+  position: relative;
+  background-color: rgb(255, 68, 0);
+  border-radius: 15px 15px 0 0;
+}
+
+.options-details .nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+
+  z-index: 9;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 145, 0);
+  border-radius: 15px 0 0 0;
+  padding: 1rem 0;
+  z-index: 2;
+  transition: all 0.3s;
+}
+.slide-right {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 145, 0);
+  border-radius: 0 15px 0 0;
+  padding: 1rem 0;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.options-details nav label {
+  position: relative;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+.icon-span {
+  padding-left: 0.5rem;
+  color: #fff;
+}
+
+.options-content1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem 0 2rem;
+  color: rgb(34, 32, 46);
+}
+
+.options-content1 .content {
+  width: 80%;
+}
+
+.book-btn {
+  margin-top: 3%;
+}
+
+.book-now {
+  background-color: orangered;
+  color: #fff;
+  padding: 1rem 2rem;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.btn-span {
+  font-weight: 500;
+  color: orangered;
+}
+
+// TRACKING FORM
+
+.options-content2 .form {
+  display: flex;
+  align-items: center;
+}
+
+.form input {
+  padding: 2rem 0 2rem 1rem;
+  margin: 3.4rem 0 1.3rem 5rem;
+  width: 60%;
+  border: 1px solid rgb(116, 113, 113);
+  color: rgb(59, 58, 58);
+  font-size: 1.4rem;
+}
+
+input::placeholder {
+  color: rgb(59, 58, 58);
+  font-weight: 500;
+}
+
+track {
+  width: 100%;
+}
+
+.track-btn {
+  margin: 1.9rem 0 0 3rem;
+  padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    padding-top: 7rem;
+    // position: fixed; //this is where i fixed th home page content, might change it if need
+  }
+
+  .hero-options {
+    max-width: 1100px;
+    padding: 0 0 3rem 0;
+    margin: 2.5rem auto 0 auto;
+    border-radius: 15px 15px 0 0;
+    background-color: rgba(216, 215, 215, 0.788);
+  }
+
+  .hero-h1 {
+    font-size: 3rem;
+  }
+
+  .hero-h2 {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .visit {
+    color: orangered;
+    font-size: 2rem;
+  }
+
+  .hero-p {
+    color: #fff;
+    font-size: 1.3rem;
+  }
+
+  .options-details .nav {
+    padding: 0.8rem 0 0.5rem 0;
+  }
+
+  .options-content1 {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem 0 2rem;
+  }
+
+  .options-content1 .content {
+    width: 100%;
+  }
+
+  .options-content1 .content h2 {
+    font-size: 1.25rem;
+  }
+
+  .book-btn {
+    margin-top: 0;
+  }
+
+  .book-now {
+    margin-left: 45%;
+    background-color: orangered;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    width: 60%;
+  }
+
+  // TRACKING FORM
+  .options-content2 {
+    width: 100%;
+  }
+
+  .options-content2 .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form input {
+    padding: 2rem 0 2rem 1rem;
+    margin: 3rem 2rem 1rem 2rem;
+    width: 90%;
+    border: 1px solid rgb(116, 113, 113);
+    color: rgb(59, 58, 58);
+    font-size: 1.4rem;
+  }
+
+  .track-btn {
+    margin: 1rem 0 0 0rem;
+    padding: 1rem 2rem;
+    display: block;
+    width: 310px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .hero {
+    padding-top: 5rem;
+    // position: fixed; //this is where i fixed th home page content, might change it if need
+  }
+
+  .hero-options {
+    max-width: 1100px;
+    padding: 0 0 1rem 0;
+    margin: 2.5rem auto 0 auto;
+    border-radius: 15px 15px 0 0;
+    background-color: rgba(216, 215, 215, 0.788);
+  }
+}

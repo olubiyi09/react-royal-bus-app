@@ -1,0 +1,184 @@
+.else {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  background: url(../../assets/pexels-jimmy-chan-1426516.jpg) center no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.main-two {
+  background: url(../../assets/pexels-jimmy-chan-1426516.jpg) center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.section {
+  padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  width: 80%;
+  padding: 13px;
+  margin-bottom: 10px;
+  background: #d6d6d6a1;
+}
+
+.details {
+  display: flex;
+  width: 100%;
+
+  p {
+    margin: 0;
+  }
+
+  * {
+    display: flex;
+    width: 100%;
+
+    * {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3px;
+      padding-right: 25px;
+      border: 1px solid rgb(94, 82, 82);
+      border-right: none;
+      color: rgb(39, 37, 37);
+
+      * {
+        border: none;
+      }
+    }
+  }
+}
+
+.sec-two {
+  :nth-child(1) {
+    border-right: none;
+  }
+  :nth-child(2) {
+    border-left: none;
+  }
+}
+
+.sec-three {
+  :nth-child(1) {
+    border-right: none;
+  }
+  :nth-child(2) {
+    border-left: none;
+  }
+}
+
+.sec-four {
+  border-right: 1px solid rgb(94, 82, 82);
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: orangered;
+  color: #fff;
+  margin-top: 10px;
+  padding: 10px 16px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 835px) {
+  .wrapper {
+    max-width: 780px;
+    width: 100%;
+
+    h6 {
+      font-size: 15px;
+    }
+
+    .details {
+      * {
+        * {
+          padding-right: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .wrapper {
+    max-width: 740px;
+    width: 100%;
+
+    .details {
+      * {
+        * {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    padding-top: 7rem;
+  }
+  .wrapper {
+    max-width: 450px;
+    width: 90%;
+  }
+  .details {
+    flex-direction: column;
+    width: 100%;
+
+    * {
+      display: flex;
+      width: 100%;
+
+      * {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3px;
+        padding-right: 25px;
+        // border: 1px solid rgb(94, 82, 82);
+        border-right: none;
+        color: rgb(39, 37, 37);
+
+        * {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .sec-one,
+  .sec-two,
+  .sec-three {
+    * {
+      border-bottom: none;
+      border-right: 1px solid rgb(94, 82, 82);
+
+      * {
+        border-right: none;
+      }
+    }
+    :nth-child(2) {
+      border-left: none;
+    }
+  }
+}

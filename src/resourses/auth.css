@@ -1,0 +1,86 @@
+.form-bg {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.else {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.link {
+  transition: all 0.3s;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s;
+}
+
+.password {
+  position: relative;
+}
+
+.icons {
+  position: absolute;
+  right: 15px;
+  top: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.icon-2 {
+  right: 15px;
+  top: 4.8rem;
+}
+
+.pass {
+  color: red;
+  background: rgba(117, 117, 117, 0.4);
+  border-radius: 8px;
+  padding: 8px 0 1px 0;
+}
+
+.span-sm {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.--align-center {
+  display: flex;
+  align-items: center;
+}
+
+.hide-indicator {
+  display: none;
+}
+
+.show-indicator {
+  display: block;
+  animation: slide-up 0.5s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.pass-green {
+  color: green;
+}
+
+.pass-red {
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .w-450 {
+    width: 92%;
+  }
+}

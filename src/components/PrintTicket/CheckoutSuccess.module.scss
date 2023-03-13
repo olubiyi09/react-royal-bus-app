@@ -1,0 +1,15 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .wrapper {
+    padding: 2rem 1rem;
+    text-align: center;
+
+    h2 {
+      color: orangered;
+    }
+  }
+}

@@ -1,0 +1,204 @@
+.fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: all 0.5s;
+  z-index: 9;
+}
+
+header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  position: fixed; //added this for fixed navbar will change later
+  top: 0; //added this for fixed navbar will change later
+
+  z-index: 99;
+
+  .header {
+    width: 100%;
+    height: 5rem;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .logo a {
+    text-decoration: none;
+    width: 25%;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(255, 145, 0);
+    cursor: pointer;
+    span {
+      color: orangered;
+      font-size: 2rem;
+    }
+  }
+
+  nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+
+      .logo-mobile {
+        display: none;
+      }
+
+      li {
+        margin: 0 5px;
+        a {
+          color: #fff;
+          &:hover {
+            color: orangered;
+          }
+        }
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+
+      li {
+        margin: 10px 8px 0 8px;
+        a {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+            color: orangered;
+          }
+        }
+      }
+    }
+
+    a {
+      color: orangered;
+      text-decoration: none;
+      margin-top: 0.7rem;
+    }
+
+    .admin {
+      background-color: orangered;
+      padding: 0.5rem 0.8rem;
+      border-radius: 3px;
+
+      &:hover {
+        color: orangered;
+        background-color: #fff;
+        transition: ease 0.5s;
+
+        a {
+          color: orangered;
+        }
+      }
+    }
+
+    .cart a {
+      display: flex;
+      color: #fff;
+      position: relative;
+      &:hover {
+        color: orangered;
+      }
+      &.active {
+        color: var(--color-danger);
+      }
+      p {
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        font-weight: 500;
+      }
+    }
+
+    span {
+      margin: 0 5px;
+
+      p {
+        color: #fff;
+      }
+    }
+
+    .links a {
+      margin: 0 5px;
+      color: #fff;
+      &:hover {
+        color: orangered;
+      }
+      &.active {
+        color: var(--color-danger);
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: none;
+  }
+
+  .menuicon {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .logo a {
+      font-size: 1.5rem;
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    .header {
+      height: 100vh;
+      align-items: flex-start;
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .h5rem {
+      height: 4rem;
+    }
+
+    .header-right {
+      margin-left: -5rem;
+      ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 7rem;
+
+        li {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    .menuicon {
+      display: block;
+      color: orangered;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+    }
+  }
+}
