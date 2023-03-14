@@ -7,9 +7,7 @@ import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router history={browserHistory}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
