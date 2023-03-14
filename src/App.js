@@ -21,7 +21,7 @@ import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
 function App() {
   return (
     <div className="h-screen bg">
-      <BrowserRouter>
+      <BrowserRouter basename="/react-royal-bus-app">
         <ToastContainer />
         <NavBar />
         <Routes>
