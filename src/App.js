@@ -1,7 +1,7 @@
 import "../src/resourses/global.css";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Home from "./components/Home";
@@ -18,7 +18,7 @@ import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
 function App() {
   return (
     <div className="h-screen bg">
-      <Router>
+      <BrowserRouter>
         <ToastContainer />
         <NavBar />
         <Routes>
@@ -41,7 +41,7 @@ function App() {
             }
           />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
