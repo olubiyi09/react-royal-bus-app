@@ -1,7 +1,7 @@
 import "../src/resourses/global.css";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Home from "./components/Home";
@@ -11,9 +11,6 @@ import BookNow from "./pages/BookNow/BookNow";
 import BookingHistory from "./pages/BookingHistory/BookingHistory";
 import { ToastContainer } from "react-toastify";
 import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
-// import AdminHome from "./pages/admin/AdminHome";
-// import AdminBuses from "./pages/admin/AdminBuses";
-// import AdminUsers from "./pages/admin/AdminUsers";
 import Admin from "./pages/admin/Admin";
 import CheckOut from "./pages/CheckOut/CheckOut";
 import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
@@ -21,7 +18,7 @@ import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
 function App() {
   return (
     <div className="h-screen bg">
-      <BrowserRouter>
+      <Router>
         <ToastContainer />
         <NavBar />
         <Routes>
@@ -44,7 +41,7 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
