@@ -18,30 +18,30 @@ import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
 function App() {
   return (
     <div className="h-screen bg">
-      <BrowserRouter>
-        <ToastContainer />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/history" element={<BookingHistory />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/book" element={<BookNow />} />
+      {/* <BrowserRouter> */}
+      <ToastContainer />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/history" element={<BookingHistory />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/book" element={<BookNow />} />
 
-          <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/success" element={<CheckoutSuccess />} />
+        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/success" element={<CheckoutSuccess />} />
 
-          <Route
-            path="/admin/*"
-            element={
-              <AdminOnlyRoute>
-                <Admin />
-              </AdminOnlyRoute>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+        <Route
+          path="/admin/*"
+          element={
+            <AdminOnlyRoute>
+              <Admin />
+            </AdminOnlyRoute>
+          }
+        />
+      </Routes>
+      {/* </BrowserRouter> */}
     </div>
   );
 }
