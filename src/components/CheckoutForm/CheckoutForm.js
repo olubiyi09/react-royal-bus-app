@@ -48,7 +48,7 @@ const CheckoutForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:4242/create-payment-intent", {
+    fetch("https://royal-bus.onrender.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
