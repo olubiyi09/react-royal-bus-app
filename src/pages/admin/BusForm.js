@@ -1,10 +1,11 @@
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../../components/loader/Loader";
-import { db } from "../../firebase/config";
+import { db, storage } from "../../firebase/config";
 import { selectBuses } from "../../redux/slice/busSlice";
 import styles from "./BusForm.module.scss";
 
@@ -12,6 +13,7 @@ const initialState = {
   name: "",
   number: "",
   capacity: "",
+  imageUrl: "",
   from: "",
   to: "",
   date: "",
@@ -37,6 +39,31 @@ const BusForm = () => {
     const { name, value } = e.target;
     setBus({ ...bus, [name]: value });
   };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    // console.log(file);
+
+    const storageRef = ref(storage, `royalBus/${Date.now()}${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        // console.log('Upload is ' + progress + '% done');
+      },
+      (error) => {
+        toast.error(error.message);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setBus({ ...bus, imageUrl: downloadURL });
+          toast.success("Image uploaded succesfully.");
+        });
+      }
+    );
+  };
 
   const navigate = useNavigate();
 
@@ -55,6 +82,7 @@ const BusForm = () => {
       const docRef = addDoc(collection(db, "buses"), {
         name: bus.name,
         number: bus.number,
+        imageUrl: bus.imageUrl,
         capacity: bus.capacity,
         from: bus.from,
         to: bus.to,
@@ -85,6 +113,7 @@ const BusForm = () => {
       setDoc(doc(db, "buses", id), {
         name: bus.name,
         number: bus.number,
+        // imageUrl: bus.imageUrl,
         capacity: bus.capacity,
         from: bus.from,
         to: bus.to,
@@ -148,6 +177,28 @@ const BusForm = () => {
                 onChange={(e) => handleInputChange(e)}
               />
             </div>
+
+            <div className={styles.image}>
+              <input
+                type="file"
+                accept="image/*"
+                // required
+                placeholder="Bus Image"
+                name="image"
+                onChange={(e) => handleImageChange(e)}
+              />
+
+              {bus.imageUrl === "" ? null : (
+                <input
+                  type="text"
+                  placeholder="Image URL"
+                  name="imageURL"
+                  value={bus.imageUrl}
+                  disabled
+                />
+              )}
+            </div>
+
             <div className={styles.group}>
               <input
                 type="text"

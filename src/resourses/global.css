@@ -1,10 +1,19 @@
+html {
+  background: url(../assets/pexels-jimmy-chan-1426516.jpg) no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .bg {
   background: url(../assets/pexels-jimmy-chan-1426516.jpg) center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: 100%;
 }
 
 .bg::after {
@@ -16,6 +25,21 @@
   position: absolute;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: -2;
+}
+
+.selected {
+  background-color: green;
+  color: #fff;
+}
+
+.booked {
+  background-color: rgb(122, 121, 121);
+  color: #fff;
+  pointer-events: none;
+}
+.red {
+  background-color: red;
+  color: #fff;
 }
 
 .container {

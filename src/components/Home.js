@@ -36,7 +36,8 @@ const Home = () => {
       console.log("yes");
     }
     if (isLoggedIn) {
-      navigate("/book");
+      // navigate("/book");
+      navigate("/booking");
     }
   };
 

@@ -14,6 +14,8 @@ import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
 import Admin from "./pages/admin/Admin";
 import CheckOut from "./pages/CheckOut/CheckOut";
 import CheckoutSuccess from "./components/PrintTicket/CheckoutSuccess";
+import Booking from "./pages/Booking/Booking";
+import BookingDetails from "./pages/BookingDetails/BookingDetails";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/history" element={<BookingHistory />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/book" element={<BookNow />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/booking-details" element={<BookingDetails />} />
 
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/success" element={<CheckoutSuccess />} />

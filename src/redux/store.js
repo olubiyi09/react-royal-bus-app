@@ -4,6 +4,9 @@ import userListReducer from "./slice/usersSlice";
 import busReducer from "./slice/busSlice";
 import cartReducer from "./slice/cartSlice";
 import bookingReducer from "./slice/bookingsSlice";
+import seatsReducer from "./slice/seatSlice";
+import sumReducer from "./slice/SumTotalSlice";
+import mergedSeatReducer from "./slice/mergedSeatSlice";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -11,6 +14,9 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   booking: bookingReducer,
   users: userListReducer,
+  seats: seatsReducer,
+  sum: sumReducer,
+  mSeats: mergedSeatReducer,
 });
 
 const store = configureStore({

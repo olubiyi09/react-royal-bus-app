@@ -50,14 +50,18 @@ const BookingHistory = () => {
                         <th scope="col">s/n</th>
                         <th scope="col">Ticket ID</th>
                         <th scope="col">From - To</th>
+                        <th scope="col">Booked Seat(s)</th>
                         <th scope="col">Trip Date</th>
-                        {/* <th scope="col"></th> */}
-                        <th scope="col">Price</th>
                       </tr>
                     </thead>
                     <tbody>
                       {filteredBooking.map((booked, index) => {
-                        const { id, tripDate, from, to, price } = booked;
+                        const { id, tripDate, from, to, price, selectedSeatz } =
+                          booked;
+
+                        const seats = selectedSeatz.map((seat) => {
+                          return seat;
+                        });
 
                         return (
                           <tr key={id}>
@@ -66,9 +70,8 @@ const BookingHistory = () => {
                             <td>
                               {from}-{to}
                             </td>
-                            {/* <td></td> */}
+                            <td>{seats.join(", ")}</td>
                             <td>{tripDate}</td>
-                            <td>${price}</td>
                           </tr>
                         );
                       })}

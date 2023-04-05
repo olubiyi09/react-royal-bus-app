@@ -8,6 +8,10 @@ import {
   selectCartItems,
   selectTotalAmount,
 } from "../../redux/slice/cartSlice";
+import {
+  CART_SUM_AMOUNT,
+  selectTotalSumAmount,
+} from "../../redux/slice/SumTotalSlice";
 import { toast } from "react-toastify";
 import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 import Loader from "../../components/loader/Loader";
@@ -26,7 +30,10 @@ const CheckoutDetails = () => {
 
   const dispatch = useDispatch();
 
-  const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${totalAmount}`;
+  const sumPrice = useSelector(selectTotalSumAmount);
+
+  // const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${totalAmount}`;
+  const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${sumPrice}`;
 
   useEffect(() => {
     dispatch(CART_AMOUNT());
@@ -41,7 +48,8 @@ const CheckoutDetails = () => {
         items: cartItems,
         userEmail: customerEmail,
         description,
-        amount: totalAmount,
+        // amount: totalAmount,
+        amount: sumPrice,
       }),
     })
       .then((res) => {

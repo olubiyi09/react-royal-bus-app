@@ -18,6 +18,15 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectEmail, selectUserID } from "../../redux/slice/authSlice";
 import { useNavigate } from "react-router-dom";
+import {
+  CART_SUM_AMOUNT,
+  selectTotalSumAmount,
+} from "../../redux/slice/SumTotalSlice";
+import { selectMergedSeats } from "../../redux/slice/mergedSeatSlice";
+import {
+  selectBookedSeats,
+  selectSelectedSeats,
+} from "../../redux/slice/seatSlice";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -30,8 +39,12 @@ const CheckoutForm = () => {
   const customerEmail = useSelector(selectEmail);
   const cartItems = useSelector(selectCartItems);
   const totalAmount = useSelector(selectTotalAmount);
+  const sumPrice = useSelector(selectTotalSumAmount);
+  const mSeats = useSelector(selectMergedSeats);
+  const selectedSeatz = useSelector(selectBookedSeats);
 
-  const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${totalAmount}`;
+  // const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${totalAmount}`;
+  const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${sumPrice}`;
 
   const cItems = useSelector(selectCartItems);
   const cItemsFrom = cItems.from;
@@ -42,7 +55,6 @@ const CheckoutForm = () => {
   const cItemsDeparture = cItems.departure;
   const cItemsArrival = cItems.arrival;
   const cItemsNumber = cItems.number;
-  //   console.log(cItemsFrom, cItemsTo, cItemsDate, cItemsPrice);
   const userID = useSelector(selectUserID);
 
   const dispatch = useDispatch();
@@ -55,7 +67,8 @@ const CheckoutForm = () => {
         items: cartItems,
         userEmail: customerEmail,
         description,
-        amount: totalAmount,
+        // amount: totalAmount,
+        amount: sumPrice,
       }),
     });
 
@@ -72,10 +85,6 @@ const CheckoutForm = () => {
     }
   }, [stripe]);
 
-  useEffect(() => {
-    dispatch(CART_AMOUNT());
-  }, [cartItems]);
-
   function makeid(length) {
     let result = "";
     const characters =
@@ -90,7 +99,13 @@ const CheckoutForm = () => {
   }
 
   const ticketID = makeid(8);
-  // console.log(ticketID);
+
+  const bookedSeats = async () => {
+    await setDoc(doc(db, "bookedBus", cItemsName), {
+      selectedSeats: mSeats,
+      createdAt: Timestamp.now().toDate(),
+    });
+  };
 
   const saveBooking = () => {
     try {
@@ -99,22 +114,21 @@ const CheckoutForm = () => {
         ticketID,
         from: cItemsFrom,
         to: cItemsTo,
-        price: cItemsPrice,
+        price: sumPrice,
         tripDate: cItemsDate,
         busName: cItemsName,
         busNumber: cItemsNumber,
         arrival: cItemsArrival,
         departure: cItemsDeparture,
+        selectedSeatz,
         userID,
         createdAt: Timestamp.now().toDate(),
       });
-      //   setIsLoading(false);
+      bookedSeats();
       toast.success("Bus saved");
     } catch (error) {
-      //   setIsLoading(false);
       toast.error(error.message);
     }
-    // console.log("booking saved");
   };
 
   const handleSubmit = async (e) => {
@@ -188,7 +202,7 @@ const CheckoutForm = () => {
                     style={{ width: "20px" }}
                   />
                 ) : (
-                  `Pay $${cItemsPrice}`
+                  `Pay $${sumPrice}`
                 )}
               </span>
             </button>
