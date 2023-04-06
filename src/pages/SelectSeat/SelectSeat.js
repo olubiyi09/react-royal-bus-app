@@ -1,14 +1,14 @@
-import { async } from "@firebase/util";
 import { Col, Row } from "antd";
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../resourses/global.css";
 import styles from "./SelectSeat.module.scss";
 import { CART_SUM_AMOUNT } from "../../redux/slice/SumTotalSlice";
 import { useDispatch } from "react-redux";
 import { STORE_MERGED_SEAT } from "../../redux/slice/mergedSeatSlice";
 import { STORE_BOOKED_SEATS } from "../../redux/slice/seatSlice";
+import { toast } from "react-toastify";
 
 const SelectSeat = ({
   selectedSeats,
@@ -22,6 +22,7 @@ const SelectSeat = ({
   const capacity = Number(cartItems.capacity);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const selectOrUnselectSeat = (seatNumber) => {
     if (selectedSeats.includes(seatNumber)) {
@@ -34,10 +35,17 @@ const SelectSeat = ({
   const bookSeat = () => {
     const mergedSeats = [...availableSeats, ...selectedSeats];
 
-    dispatch(CART_SUM_AMOUNT(sumAmount));
-    dispatch(STORE_MERGED_SEAT(mergedSeats));
-    dispatch(STORE_BOOKED_SEATS(selectedSeats));
-    // console.log(selectedSeats);
+    console.log(selectedSeats.length);
+
+    if (selectedSeats.length === 0) {
+      toast.error("Please select seat(s)");
+    } else {
+      dispatch(CART_SUM_AMOUNT(sumAmount));
+      dispatch(STORE_MERGED_SEAT(mergedSeats));
+      dispatch(STORE_BOOKED_SEATS(selectedSeats));
+
+      navigate("/checkout");
+    }
   };
 
   return (
@@ -78,9 +86,7 @@ const SelectSeat = ({
       </div>
 
       <div className={`d-flex justify-content-end ${styles.btn}`}>
-        <Link to={`/checkout`}>
-          <button onClick={() => bookSeat()}>Book Trip</button>
-        </Link>
+        <button onClick={() => bookSeat()}>Book Trip</button>
       </div>
     </div>
   );
