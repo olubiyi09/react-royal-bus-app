@@ -35,8 +35,6 @@ const SelectSeat = ({
   const bookSeat = () => {
     const mergedSeats = [...availableSeats, ...selectedSeats];
 
-    console.log(selectedSeats.length);
-
     if (selectedSeats.length === 0) {
       toast.error("Please select seat(s)");
     } else {

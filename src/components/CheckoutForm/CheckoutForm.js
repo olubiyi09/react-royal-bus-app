@@ -125,7 +125,7 @@ const CheckoutForm = () => {
         createdAt: Timestamp.now().toDate(),
       });
       bookedSeats();
-      toast.success("Bus saved");
+      toast.success("Booking Successful");
     } catch (error) {
       toast.error(error.message);
     }
