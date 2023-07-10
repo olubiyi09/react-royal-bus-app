@@ -47,9 +47,9 @@ const CheckoutForm = () => {
   const description = `RoyalBus payment: email: ${customerEmail}, Amount: ${sumPrice}`;
 
   const cItems = useSelector(selectCartItems);
-  const cItemsFrom = cItems.from;
-  const cItemsTo = cItems.to;
-  const cItemsDate = cItems.date;
+  const cItemsFrom = cItems.firstCity;
+  const cItemsTo = cItems.secondCity;
+  const cItemsDate = cItems.selectedDate;
   const cItemsPrice = cItems.price;
   const cItemsName = cItems.name;
   const cItemsDeparture = cItems.departure;

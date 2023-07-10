@@ -25,9 +25,12 @@ const BookingDetails = () => {
     capacity,
     departure,
     arrival,
-    date,
-    from,
-    to,
+    // date,
+    // from,
+    // to,
+    firstCity,
+    secondCity,
+    selectedDate,
   } = cartItems;
 
   const priceNum = Number(price);
@@ -67,7 +70,7 @@ const BookingDetails = () => {
         <div className={`container  ${styles.wrapper}`}>
           <div className={styles.left}>
             <h4 style={{ color: "#fff" }}>
-              {from} to {to}
+              {firstCity} to {secondCity}
             </h4>
             <hr />
             <div
@@ -76,13 +79,13 @@ const BookingDetails = () => {
               <div className="">
                 <h6>Bus Depart</h6>
                 <p>
-                  {date}, {departure}
+                  {selectedDate}, {departure}
                 </p>
               </div>
               <div className="">
                 <h6>Bus Arrive</h6>
                 <p>
-                  {date}, {arrival}
+                  {selectedDate}, {arrival}
                 </p>
               </div>
             </div>
@@ -137,7 +140,7 @@ const BookingDetails = () => {
                     <FaMoneyBillAlt size={30} />
                   </span>
                   <span>
-                    <h6>Trip Price/Seat:</h6>
+                    <h6>Trip Price per Seat:</h6>
                     <p> ${price}</p>
                   </span>
                 </div>

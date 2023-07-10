@@ -160,6 +160,53 @@ header {
     display: none;
   }
 
+  .navprofile {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .dropdown-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .dropdown-icon.open {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #969595;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+
+    a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
   @media screen and (max-width: 600px) {
     .logo a {
       font-size: 1.5rem;

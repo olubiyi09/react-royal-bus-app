@@ -37,7 +37,8 @@ const Home = () => {
     }
     if (isLoggedIn) {
       // navigate("/book");
-      navigate("/booking");
+      // navigate("/booking"); this is for the live
+      navigate("/bookings"); // this is for new features
     }
   };
 

@@ -1,0 +1,163 @@
+.form-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 3rem;
+}
+
+.form-wrap h2 {
+  color: #ccc;
+}
+
+.profile-pic-sec-wrap {
+  display: flex;
+}
+
+.profile-settings-cont {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-right: 1rem;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #d1cfcf;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings-container h2 {
+  margin-bottom: 20px;
+}
+
+.display-name {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-picture input[type="file"] {
+  display: none;
+}
+
+.profile-picture label {
+  padding: 8px 16px;
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.profile-picture label:hover {
+  background-color: orangered;
+}
+
+.image-info {
+  margin-top: 2rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 6px;
+  text-align: center;
+}
+
+.image-info p {
+  font-size: 0.9rem;
+}
+
+.profile-settings-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #d1cfcf;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings-container h2 {
+  margin-bottom: 20px;
+}
+
+.div-combo {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-settings-form {
+  display: grid;
+  gap: 10px;
+}
+
+.form-group {
+  display: grid;
+  align-items: center;
+}
+
+.profile-settings-container label {
+  font-weight: bold;
+  margin-bottom: -15px;
+}
+
+.form-group [type="text"],
+.form-group [type="email"],
+.form-group [type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: #cccccc49;
+  border-radius: 3px;
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(250, 75, 12);
+}
+
+.profile-btns {
+  display: flex;
+}
+
+.p-btn1 {
+  margin-right: 10px;
+  background-color: #817c7c;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-pic-sec-wrap {
+    flex-direction: column;
+    padding: 0 0.5rem;
+    padding-top: 20rem;
+  }
+
+  .profile-settings-cont {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

@@ -13,6 +13,8 @@ import {
 } from "../../redux/slice/authSlice";
 import { doc, getDoc } from "firebase/firestore";
 import AdminOnlyRoute from "../adminOnlyRoute/AdminOnlyRoute";
+import profilePic from "../../assets/seyi.jpeg";
+import { AiFillCaretDown } from "react-icons/ai";
 
 const logo = (
   <div className="logo">
@@ -26,6 +28,12 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -101,9 +109,10 @@ const Navbar = () => {
 
         <div className={showNav ? "header-right" : "header-right hide"}>
           <ul onClick={displayNav}>
-            <a href="#">
+            <Link to="/profile">
               Welcome, <b>{displayName}</b>
-            </a>
+            </Link>
+
             <li>
               <AdminOnlyRoute>
                 <div className="admin">
@@ -130,6 +139,25 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/contact">Contact Us</Link>
+            </li>
+            <li>
+              <div className="navprofile" onClick={toggleDropdown}>
+                <img
+                  className="profile-picture"
+                  src={profilePic}
+                  alt="Profile"
+                />
+                <div className="dropdown" onClick={toggleDropdown}>
+                  <AiFillCaretDown
+                    className={`dropdown-icon ${isDropdownOpen ? "open" : ""}`}
+                  />
+                  {isDropdownOpen && (
+                    <div className="dropdown-content">
+                      <Link to="/profile">Profile</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
             </li>
           </ul>
         </div>
