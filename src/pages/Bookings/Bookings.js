@@ -118,7 +118,7 @@ const Bookings = () => {
   return (
     <>
       <div className={styles["bookings-wrapper"]}>
-        <div className="mt-5">
+        <div className={`mt-5 ${styles["sep"]}>`}>
           <h1>BOOK YOUR BUS TICKET</h1>
           <p className={styles["info-p"]}>
             Choose Your Destinations And Dates To Reserve A Ticket
@@ -130,57 +130,61 @@ const Bookings = () => {
 
           <div className={styles["wrap-all"]}>
             <div className={` ${styles["booking-section"]}`}>
-              <div>
-                <label htmlFor="from">From</label>
-                <select
-                  id="from"
-                  className={styles["custom-select"]}
-                  value={firstCity}
-                  onChange={handleChange}
-                >
-                  <option value="">Select a city ---</option>
-                  {fromOptions}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="to">To</label>
-                <select
-                  id="to"
-                  className={styles["custom-select"]}
-                  value={secondCity}
-                  onChange={handleChangeTwo}
-                >
-                  <option value="">Select a city ---</option>
-                  {toOptions}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="bus">Bus Type</label>
-                <select
-                  id="bus"
-                  className={styles["custom-select"]}
-                  value={type}
-                  onChange={handleBusType}
-                >
-                  {busTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="date">Date</label>
+              <div className={styles["sec-cont"]}>
                 <div>
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    className="datepicker-input"
-                  />
+                  <label htmlFor="from">From</label>
+                  <select
+                    id="from"
+                    className={styles["custom-select"]}
+                    value={firstCity}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select a city ---</option>
+                    {fromOptions}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="to">To</label>
+                  <select
+                    id="to"
+                    className={styles["custom-select"]}
+                    value={secondCity}
+                    onChange={handleChangeTwo}
+                  >
+                    <option value="">Select a city ---</option>
+                    {toOptions}
+                  </select>
+                </div>
+              </div>
+
+              <div className={styles["sec-cont"]}>
+                <div>
+                  <label htmlFor="bus">Bus Type</label>
+                  <select
+                    id="bus"
+                    className={styles["custom-select"]}
+                    value={type}
+                    onChange={handleBusType}
+                  >
+                    {busTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="date">Date</label>
+                  <div>
+                    <input
+                      type="date"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                      className="datepicker-input"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

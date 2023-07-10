@@ -32,12 +32,17 @@
 
 .booking-section {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 53rem;
   padding: 2rem;
   padding-bottom: 0;
   padding-top: 1rem;
   margin-top: 4rem;
+}
+
+.sec-cont {
+  display: flex;
 }
 
 .booking-section div {
@@ -79,4 +84,38 @@ select:focus {
   display: flex;
   justify-content: flex-end;
   padding-right: 2.4rem;
+}
+
+@media screen and (max-width: 850px) {
+  .booking-section {
+    width: 45rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .bookings-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 5rem;
+  }
+  .bookings-wrapper h1 {
+    font-size: 1.7rem;
+  }
+
+  .booking-section {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .info-p {
+    font-size: 0.75rem;
+  }
+
+  .sec-cont {
+    flex-direction: column;
+  }
+
+  .sec-cont div {
+    display: flex;
+    flex-direction: column;
+  }
 }

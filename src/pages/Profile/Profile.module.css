@@ -149,6 +149,12 @@ button[type="submit"]:hover {
   background-color: #817c7c;
 }
 
+@media screen and (max-width: 850px) {
+  .profile-pic-sec-wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 @media screen and (max-width: 600px) {
   .profile-pic-sec-wrap {
     flex-direction: column;
@@ -159,5 +165,11 @@ button[type="submit"]:hover {
   .profile-settings-cont {
     width: 100%;
     margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .form-wrap {
+    padding-top: 10rem;
   }
 }
