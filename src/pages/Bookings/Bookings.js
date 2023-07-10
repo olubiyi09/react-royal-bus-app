@@ -3,7 +3,7 @@ import styles from "./Bookings.module.css";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_CART, selectCartItems } from "../../redux/slice/cartSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const cities = [
   "Paris",
@@ -28,6 +28,7 @@ const Bookings = () => {
   // const cartItems = useSelector(selectCartItems);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFirstCity(event.target.value);
@@ -112,6 +113,7 @@ const Bookings = () => {
       toast.success("Please select date");
     } else {
       dispatch(ADD_TO_CART(tripDetails));
+      navigate("/booking-details");
     }
   };
 
@@ -190,12 +192,7 @@ const Bookings = () => {
             </div>
 
             <div className={styles["trip-btn"]}>
-              <Link
-                to={`/booking-details`}
-                onClick={() => bookTrip(tripDetails)}
-              >
-                <button>Book Trip</button>
-              </Link>
+              <button onClick={() => bookTrip(tripDetails)}>Book Trip</button>
             </div>
           </div>
         </div>
