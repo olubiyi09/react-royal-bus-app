@@ -157,9 +157,9 @@ const Navbar = () => {
 
           <div className={showNav ? "header-right" : "header-right hide"}>
             <ul onClick={displayNav}>
-              <Link to="/profile">
+              // <Link to="/profile">
                 Welcome, <b>{displayName}</b>
-              </Link>
+              // </Link>
 
               <li>
                 <AdminOnlyRoute>
@@ -178,13 +178,13 @@ const Navbar = () => {
                   <Link to="/login">Login|Register</Link>
                 )}
               </li>
-              <li>
-                {isLoggedIn ? (
-                  <Link to="/profile">Profile</Link>
-                ) : (
-                  <Link to="/login">Login|Register</Link>
-                )}
-              </li>
+              // <li>
+              //   {isLoggedIn ? (
+              //     <Link to="/profile">Profile</Link>
+              //   ) : (
+              //     <Link to="/login">Login|Register</Link>
+              //   )}
+              // </li>
               <li>
                 {isLoggedIn && (
                   <Link to="/" onClick={logoutUser}>
