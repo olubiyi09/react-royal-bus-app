@@ -157,9 +157,9 @@ const Navbar = () => {
 
           <div className={showNav ? "header-right" : "header-right hide"}>
             <ul onClick={displayNav}>
-              // <Link to="/profile">
+              <li>
                 Welcome, <b>{displayName}</b>
-              // </Link>
+              </li>
 
               <li>
                 <AdminOnlyRoute>
@@ -178,13 +178,6 @@ const Navbar = () => {
                   <Link to="/login">Login|Register</Link>
                 )}
               </li>
-              // <li>
-              //   {isLoggedIn ? (
-              //     <Link to="/profile">Profile</Link>
-              //   ) : (
-              //     <Link to="/login">Login|Register</Link>
-              //   )}
-              // </li>
               <li>
                 {isLoggedIn && (
                   <Link to="/" onClick={logoutUser}>
@@ -196,28 +189,6 @@ const Navbar = () => {
                 <Link to="/contact">Contact Us</Link>
               </li>
 
-              {/* <li>
-                <div className="navprofile" onClick={toggleDropdown}>
-                  <img
-                    className="profile-picture"
-                    src={userFullDetails.imageURL}
-                    alt="Profile"
-                  />
-
-                  <div className="dropdown" onClick={toggleDropdown}>
-                    <AiFillCaretDown
-                      className={`dropdown-icon ${
-                        isDropdownOpen ? "open" : ""
-                      }`}
-                    />
-                    {isDropdownOpen && (
-                      <div className="dropdown-content">
-                        <Link to="/profile">Profile</Link>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </li> */}
             </ul>
           </div>
           <div
